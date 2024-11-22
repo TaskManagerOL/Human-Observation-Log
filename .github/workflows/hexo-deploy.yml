@@ -20,12 +20,12 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install hexo
+      run: npm install -g hexo-cli --save
+
     - name: Build Hexo
-      run: npm run build 
+      run: hexo clean
+      run: hexo g
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public 
-        publish_branch: build
+      uses: hexo d
